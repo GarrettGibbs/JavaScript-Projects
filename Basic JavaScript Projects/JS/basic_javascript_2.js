@@ -9,3 +9,4 @@ function function2() {
     newsent += " I had so much left to give!";
     document.getElementById("Concatenate").innerHTML = newsent;
 }
+
