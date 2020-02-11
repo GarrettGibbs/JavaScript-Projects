@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> test </title>
+        <meta charset="utf-8">
+        <script src="./JS/basic_javascript_9.js"></script>
+        <link rel="stylesheet" type="text/css" href="./CSS/Basic_CSS_1.css">
+	</head>
+	<body>
+        <div class="slideshow-container">
+            
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="./Images/A doll's house.jpg" style="width:100%">
+                <div class="text">A Doll's House</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="./Images/The Importance of Being Earnest.jpg" style="width:100%">
+                <div class="text">The Importance of Being Earnest</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="./Images/The Misanthrope.jpg" style="width:100%">
+                <div class="text">The Misanthrope</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="./Images/The Oz Chronicles 2.jpg" style="width:100%">
+                <div class="text">The Oz Chronicles</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+       
+        </div>
+        <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+
+        <br>
+        <br>
+        <div> <!--countdown-->
+            <p>How many seconds would you like to set your alarm for?</p>
+            <input id="seconds" value=""/>
+            <button onclick="countdown()">Click Here</button>
+            <p id="timer"></p>
+        </div>
+	</body>
+</html>
