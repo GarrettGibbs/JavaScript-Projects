@@ -58,24 +58,24 @@ function startGame() {
 }
 
 function btnDisabled(btn) {
-    btn.style.color = "fff";
-    btn.style.border = "2px solid rbg(153,153,102)";
+    btn.style.color = "#fff";
+    btn.style.border = "2px solid rgb(153,153,102)";
     btn.style.backgroundColor = "rgb(214,214,194)";
-    btn.btnDisabled = true;
+    btn.disabled = true;
 }
 
 function stopEnabled(btn) {
     btn.style.color = "fff";
-    btn.style.border = "2px solid rbg(204,0,0)";
+    btn.style.border = "2px solid rgb(204,0,0)";
     btn.style.backgroundColor = "rgb(255,51,51)";
-    btn.btnDisabled = false;
+    btn.disabled = false;
 }
 
 function startEnabled(btn) {
     btn.style.color = "fff";
     btn.style.border = "2px solid rbg(0,153,0)";
     btn.style.backgroundColor = "rgb(57,230,0)";
-    btn.btnDisabled = false;
+    btn.disabled = false;
 }
 
 function stopGame() {
@@ -121,7 +121,7 @@ function saveSettings() {
     var p2Index = document.getElementById("player2").selectedIndex;
     var p2Selected = document.getElementById("player2").options;
     if (p1Selected[p1Index].text == p2Selected[p2Index].text) {
-        alert("Error - Player 1 and Player 2 cannot both be assagined as: "+p1Selected[p1Index].text)
+        alert("Error - Player 1 and Player 2 cannot both be assigned as: "+p1Selected[p1Index].text)
     } else {
         document.getElementById('p1Display').innerHTML = p1Selected[p1Index].text;
         document.getElementById('p2Display').innerHTML = p2Selected[p2Index].text;
@@ -129,56 +129,56 @@ function saveSettings() {
 }
 
 function getAvatars() {
-    var p1Avatar = document.getElementById('p1Display').innerHTML;
-    var p2Avatar = document.getElementById('p2Display').innerHTML;
-    var avatarArray = [p1Avatar, p2Avatar];
-    return avatarArray;
+	var p1Avatar = document.getElementById("p1Display").innerHTML;
+    var p2Avatar = document.getElementById("p2Display").innerHTML;
+	var avatarArray = [p1Avatar,p2Avatar];
+	return avatarArray;
 }
 
 function determineAvatar() {
-    var avatarArray = getAvatars();
-    var active = document.getElementById('showPlayer').innerHTML;
-    p1Avatar = avatarArray[0];
-    p2Avatar = avatarArray[1];
-    if (active == "Player 1") {
-        var paintAvatar = p1Avatar;
-    } else if (active == "Player 2") {
-        var paintAvatar = p2Avatar;
-    }
-    return paintAvatar;
+	var avatarArray = getAvatars(); 
+	var active = document.getElementById('showPlayer').innerHTML; 
+	p1Avatar = avatarArray[0];
+	p2Avatar = avatarArray[1];
+	if (active == "Player 1") { 
+		var paintAvatar = p1Avatar;
+	} else if (active == "Player 2") {
+		var paintAvatar = p2Avatar;
+	}
+	return paintAvatar; 
 }
 
 function avatarPlaced() {
-    var parseText = document.getElementById('gameMsg').innerHTML;
-    var showPlayer = document.getElementById('showPlayer');
-    if (parseText == "That's three is a row, Player 1 wins!" || parseText == "That's three is a row, Player 2 wins!") {
-        showPlayer.innerHTML = "Game Stopped";
-        showPlayer.style.color = "red";
-    }
-    activePlayer = showPlayer.innerHTML;
-    if (activePlayer == "Player 1") {
-        showPlayer = "Player 2";
-    } else {
-        showPlayer = "Player 1";
-    }
-    check4Tie();
+	var parseText = document.getElementById('gameMsg').innerHTML;
+	var showPlayer = document.getElementById('showPlayer'); 
+	if (parseText == "That's three in a row, Player 1 wins!" || parseText == "That's three in a row, Player 2 wins!"){
+		showPlayer.innerHTML = "Game Stopped";
+		showPlayer.style.color='red';
+	}
+	activePlayer = showPlayer.innerHTML; 
+	if (activePlayer == "Player 1") { 
+		showPlayer.innerHTML = "Player 2";
+	} else {
+		showPlayer.innerHTML = "Player 1";
+	}
+	check4Tie(); 
 }
 
 function check(info,square) {
-    for (var i in info) {
-        var tempInfo  = info[i].charAt(0);
+	for (var i in info) {
+    	var tempInfo = info[i].charAt(0); 
         if (tempInfo == square) {
-            return tempInfo;
+        	return tempInfo;
         }
     }
 }
 
 function recordMoves(square) {
-    var proposedMove = square;
-    var boardState = document.getElementById('boardState').innerHTML;
-    var info = boardState.split(',');
-    verdict = check(info,squared);
-    return verdict;
+	var proposedMove = square;
+	var boardState = document.getElementById('boardState').innerHTML; 
+	var info = boardState.split(',');
+	verdict = check(info,square); 
+	return verdict;
 }
 
 function recordMove(currentMove) {
@@ -222,8 +222,8 @@ function check4Tie() {
 }
 
 function winner(winDetected,winCon) {
-    if (winDetected = "win") {
-        var showMe = winDetected;
+    if (winDetected == "win") {
+        var showme = winDetected;
         var activePlayer = document.getElementById('showPlayer').innerHTML;
         var txt2 = "That's three in a row, "+activePlayer+" wins!";
         writeMsg(txt2);
@@ -257,13 +257,13 @@ function glowBoard(pos) {
             setTimeout(function() {bg1.style.backgroundColor = 'rgb(122,244,66)';},900);
             setTimeout(function() {bg1.style.backgroundColor = 'rgb(66,244,235)';},1000);
             setTimeout(function() {bg1.style.backgroundColor = '#d7f3f7';},1100);
-        } else if (1 == index1) {
+        } else if (i == index1) {
         var bg2 = squares[i];
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(66,244,235)';},100);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(122,244,66)';},200);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(197,244,66)';},300);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(244,238,66)';},400);
-            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244,179,235)';},500);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244,179,66)';},500);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(66,244,235)';},600);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(222,244,66)';},700);
             setTimeout(function() {bg2.style.backgroundColor = 'rgb(297,244,66)';},800);
@@ -290,7 +290,7 @@ function glowBoard(pos) {
 
 function squareSound() {
     var sound = document.getElementById("placeAvatar");
-    sound.play()
+    sound.play();
     setTimeout(function() {sound.pause();},400);
     setTimeout(function() {sound.currentTime = 0;},500);
 }
@@ -310,7 +310,7 @@ function winSound() {
 
 function diceRoll() {
     var sound = document.getElementById("diceRoll");
-    sound.play()
+    sound.play();
 }
 
 function blink() {
@@ -549,7 +549,7 @@ function checkWinCon1(info,squareArray) {
         }
     }
     if (match0Avatar != undefined && match1Avatar != undefined && match2Avatar != undefined) {
-        if (match0Avatar == match1Avatar && match1Avatar == match2Avatar) {
+        if (match0Avatar == match1Avatar && match0Avatar == match2Avatar) {
             winDetected = "win";
             winner(winDetected,winCon1);
             return;
@@ -560,7 +560,7 @@ function checkWinCon1(info,squareArray) {
 
 function checkWinCon2(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [3,4,5];
+    var winCon2 = [3,4,5];
     for (var i in info) {
         if (info[i].charAt(0) == "3") {
             var match3Avatar = info[i].charAt(1);
@@ -573,7 +573,7 @@ function checkWinCon2(info,squareArray) {
         }
     }
     if (match3Avatar != undefined && match4Avatar != undefined && match5Avatar != undefined) {
-        if (match3Avatar == match4Avatar && match4Avatar == match5Avatar) {
+        if (match3Avatar == match4Avatar && match3Avatar == match5Avatar) {
             winDetected = "win";
             winner(winDetected,winCon2);
             return;
@@ -584,7 +584,7 @@ function checkWinCon2(info,squareArray) {
 
 function checkWinCon3(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [6,7,8];
+    var winCon3 = [6,7,8];
     for (var i in info) {
         if (info[i].charAt(0) == "6") {
             var match6Avatar = info[i].charAt(1);
@@ -597,7 +597,7 @@ function checkWinCon3(info,squareArray) {
         }
     }
     if (match6Avatar != undefined && match7Avatar != undefined && match8Avatar != undefined) {
-        if (match6Avatar == match7Avatar && match7Avatar == match8Avatar) {
+        if (match6Avatar == match7Avatar && match6Avatar == match8Avatar) {
             winDetected = "win";
             winner(winDetected,winCon3);
             return;
@@ -608,7 +608,7 @@ function checkWinCon3(info,squareArray) {
 
 function checkWinCon4(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [0,3,6];
+    var winCon4 = [0,3,6];
     for (var i in info) {
         if (info[i].charAt(0) == "0") {
             var match0Avatar = info[i].charAt(1);
@@ -621,7 +621,7 @@ function checkWinCon4(info,squareArray) {
         }
     }
     if (match0Avatar != undefined && match3Avatar != undefined && match6Avatar != undefined) {
-        if (match0Avatar == match3Avatar && match3Avatar == match6Avatar) {
+        if (match0Avatar == match3Avatar && match0Avatar == match6Avatar) {
             winDetected = "win";
             winner(winDetected,winCon4);
             return;
@@ -632,7 +632,7 @@ function checkWinCon4(info,squareArray) {
 
 function checkWinCon5(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [1,4,7];
+    var winCon5 = [1,4,7];
     for (var i in info) {
         if (info[i].charAt(0) == "1") {
             var match1Avatar = info[i].charAt(1);
@@ -645,7 +645,7 @@ function checkWinCon5(info,squareArray) {
         }
     }
     if (match1Avatar != undefined && match4Avatar != undefined && match7Avatar != undefined) {
-        if (match1Avatar == match4Avatar && match4Avatar == match7Avatar) {
+        if (match1Avatar == match4Avatar && match1Avatar == match7Avatar) {
             winDetected = "win";
             winner(winDetected,winCon5);
             return;
@@ -656,7 +656,7 @@ function checkWinCon5(info,squareArray) {
 
 function checkWinCon6(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [2,5,8];
+    var winCon6 = [2,5,8];
     for (var i in info) {
         if (info[i].charAt(0) == "2") {
             var match2Avatar = info[i].charAt(1);
@@ -669,7 +669,7 @@ function checkWinCon6(info,squareArray) {
         }
     }
     if (match2Avatar != undefined && match5Avatar != undefined && match8Avatar != undefined) {
-        if (match2Avatar == match5Avatar && match5Avatar == match8Avatar) {
+        if (match2Avatar == match5Avatar && match2Avatar == match8Avatar) {
             winDetected = "win";
             winner(winDetected,winCon6);
             return;
@@ -680,7 +680,7 @@ function checkWinCon6(info,squareArray) {
 
 function checkWinCon7(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [0,4,8];
+    var winCon7 = [0,4,8];
     for (var i in info) {
         if (info[i].charAt(0) == "0") {
             var match0Avatar = info[i].charAt(1);
@@ -693,7 +693,7 @@ function checkWinCon7(info,squareArray) {
         }
     }
     if (match0Avatar != undefined && match4Avatar != undefined && match8Avatar != undefined) {
-        if (match0Avatar == match4Avatar && match4Avatar == match8Avatar) {
+        if (match0Avatar == match4Avatar && match0Avatar == match8Avatar) {
             winDetected = "win";
             winner(winDetected,winCon7);
             return;
@@ -704,7 +704,7 @@ function checkWinCon7(info,squareArray) {
 
 function checkWinCon8(info,squareArray) {
     var winDetected = "on";
-    var winCon1 = [2,4,6];
+    var winCon8 = [2,4,6];
     for (var i in info) {
         if (info[i].charAt(0) == "2") {
             var match2Avatar = info[i].charAt(1);
@@ -717,7 +717,7 @@ function checkWinCon8(info,squareArray) {
         }
     }
     if (match2Avatar != undefined && match4Avatar != undefined && match6Avatar != undefined) {
-        if (match2Avatar == match4Avatar && match4Avatar == match6Avatar) {
+        if (match2Avatar == match4Avatar && match2Avatar == match6Avatar) {
             winDetected = "win";
             winner(winDetected,winCon8);
             return;
