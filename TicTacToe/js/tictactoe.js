@@ -175,7 +175,7 @@ function check(info,square) {
 
 function recordMoves(square) {
     var proposedMove = square;
-    var boardState = document.getElementById('boardstate').innerHTML;
+    var boardState = document.getElementById('boardState').innerHTML;
     var info = boardState.split(',');
     verdict = check(info,squared);
     return verdict;
@@ -189,7 +189,7 @@ function recordMove(currentMove) {
 
 function checkForWinCon() {
     var squareArray = [];
-    var target = document.getElementById('boardstate');
+    var target = document.getElementById('boardState');
     var info = target.innerHTML;
     info = info.substring(1);
     info = info.split(',');
@@ -209,7 +209,7 @@ function checkForWinCon() {
 }
 
 function check4Tie() {
-    var boardState = document.getElementById('boardstate').innerHTML;
+    var boardState = document.getElementById('boardState').innerHTML;
     boardState = boardState.substring(1);
     boardState = boardState.split(',');
     var check = document.getElementById('gameMsg').innerHTML;
@@ -527,11 +527,11 @@ function square9Animate() {
 }
 
 function animateO(selected) {
-    selected.style.transform = (selected.style.transform == "transformY(-100%)" || null) ? "translateY(0)" : "translateY(-100%)";
+	selected.style.transform = (selected.style.transform == "translateY(0%)" || null) ? "translateY(0%)" : "translateY(0%)";
 }
 
 function animateX(selected) {
-    selected.style.transform = (selected.style.transform == "transformY(100%)" || null) ? "translateY(0%)" : "translateY(100%)";
+	selected.style.transform = (selected.style.transform == "translateY(-100%)" || null) ? "translateY(0%)" : "translateY(-100%)";
 }
 
 function checkWinCon1(info,squareArray) {
