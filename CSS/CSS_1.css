@@ -1,0 +1,15 @@
+input[type=text] {
+    width: 25%;
+    padding: 8px 16px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 2px solid purple;
+}
+
+input[type=submit] {
+    background-color: purple;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 4px 2px;
+}
