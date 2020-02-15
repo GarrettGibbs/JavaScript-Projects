@@ -1,8 +1,15 @@
-//canvas
+//canvas gradient color
 var c = document.getElementById("firstCanvas");
 var ctx = c.getContext("2d");
+var grd = ctx.createLinearGradient(0, 0, 170, 0);
+grd.addColorStop(0, "purple");
+grd.addColorStop(1, "white");
+ctx.fillStyle = grd;
+ctx.fillRect(0, 0, 300, 300);
+
+//canvas line
 ctx.moveTo(0, 0);
-ctx.lineTo(200, 100);
+ctx.lineTo(300, 150);
 ctx.stroke();
 
 function iceCreamFunction() {
